@@ -33,6 +33,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let tripViewController = storyBoard.instantiateViewController(withIdentifier: "trip") as! TripViewController
         tripViewController.tripCoords = self.tripCoords
+        if self.end {
+            tripViewController.ended = true
+        }
         self.present(tripViewController, animated: true, completion: nil)
     }
     
@@ -102,7 +105,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             if self.tripCoords.count == 1 {
                 self.popTripView(tripCoords: self.tripCoords)
             }
-            print(self.tripCoords.count)
+//            print(self.tripCoords.count)
         } else {
             self.locationManager.stopUpdatingLocation()
         }
