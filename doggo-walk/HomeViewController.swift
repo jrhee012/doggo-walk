@@ -18,7 +18,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     let finishTitle = "Finish"
     
     var tripCoords: [CLLocationCoordinate2D] = []
-    
     var start = false
     var end = true
     
@@ -87,11 +86,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         
         if !self.end {
             self.tripCoords.append(locValue)
-            print(self.tripCoords.count)
-//            if self.tripCoords.count == 1 {
-//                self.popTripView(tripCoords: self.tripCoords)
-//            }
-//            print(self.tripCoords.count)
         }
         
         if (self.tripCoords.count > 0) {
@@ -130,36 +124,33 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         self.mapView.removeOverlays(mapView.overlays)
     }
     
+    private func createAndSetOVerlays(coordinates: [CLLocationCoordinate2D]) {
+        let polyline = MKPolyline(coordinates: coordinates, count: coordinates.count)
+        self.mapView.addOverlay(polyline, level: MKOverlayLevel.aboveRoads)
+        self.mapView.setVisibleMapRect(polyline.boundingMapRect, edgePadding: UIEdgeInsets(top: 50.0, left: 50.0, bottom: 50.0, right: 50.0), animated: true)
+    }
+    
+    private func createAndSetAnnotation(title: String, coord: CLLocationCoordinate2D) {
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = coord
+        annotation.title = title
+        self.mapView.addAnnotation(annotation)
+    }
+    
     private func currentLocationMapView(coord: CLLocationCoordinate2D) {
         self.clearAllMapUI()
         
-        let startAnnotation = MKPointAnnotation()
-        startAnnotation.coordinate = coord
-        startAnnotation.title = "Current Location"
-        mapView.addAnnotation(startAnnotation)
-        
-        let polyline = MKPolyline(coordinates: [coord], count: 1)
-        self.mapView.addOverlay(polyline, level: MKOverlayLevel.aboveRoads)
-        self.mapView.setVisibleMapRect(polyline.boundingMapRect, edgePadding: UIEdgeInsets(top: 50.0, left: 50.0, bottom: 50.0, right: 50.0), animated: true)
+        self.createAndSetAnnotation(title: "Current Location", coord: coord)
+        self.createAndSetOVerlays(coordinates: [coord])
     }
     
     private func addAnnotations() {
         self.clearAllAnnotations()
         
-        let startAnnotation = MKPointAnnotation()
-        startAnnotation.coordinate = self.tripCoords[0]
-        startAnnotation.title = "Start"
-        mapView.addAnnotation(startAnnotation)
+        self.createAndSetAnnotation(title: "Start", coord: self.tripCoords[0])
         
         if self.tripCoords.count > 1 {
-            let lastAnnotation = MKPointAnnotation()
-            lastAnnotation.coordinate = self.tripCoords[self.tripCoords.count - 1]
-            if self.end {
-                lastAnnotation.title = "Finish"
-            } else {
-                lastAnnotation.title = "Current"
-            }
-            mapView.addAnnotation(lastAnnotation)
+            self.createAndSetAnnotation(title: "Current", coord: self.tripCoords[self.tripCoords.count - 1])
         }
     }
     
@@ -167,9 +158,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         self.clearAllOverlays()
         
         let coordinates = self.tripCoords
-        let polyline = MKPolyline(coordinates: coordinates, count: coordinates.count)
-        self.mapView.addOverlay(polyline, level: MKOverlayLevel.aboveRoads)
-        self.mapView.setVisibleMapRect(polyline.boundingMapRect, edgePadding: UIEdgeInsets(top: 50.0, left: 50.0, bottom: 50.0, right: 50.0), animated: true)
+        self.createAndSetOVerlays(coordinates: coordinates)
     }
 }
-
