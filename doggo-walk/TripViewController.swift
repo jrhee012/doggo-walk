@@ -17,7 +17,7 @@ class TripViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
     
     var tripCoords: [CLLocationCoordinate2D] = []
-    var ended = false
+//    var ended = false
     
     @IBAction func backToHomeButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -53,11 +53,7 @@ class TripViewController: UIViewController, MKMapViewDelegate {
         
         let lastAnnotation = MKPointAnnotation()
         lastAnnotation.coordinate = self.tripCoords[self.tripCoords.count - 1]
-        if self.ended {
-            lastAnnotation.title = "Finish"
-        } else {
-            lastAnnotation.title = "Current"
-        }
+        lastAnnotation.title = "Finish"
         mapView.addAnnotation(lastAnnotation)
     }
     

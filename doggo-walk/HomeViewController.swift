@@ -15,15 +15,15 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     let userDefaults = UserDefaults.standard
     
     let startTitle = "Start"
-    let viewMapTitle = "View Map"
+    let finishTitle = "Finish"
     
     var tripCoords: [CLLocationCoordinate2D] = []
+    
     var start = false
     var end = true
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var startButtonUI: UIButton!
-    @IBOutlet weak var finishButtonUI: UIButton!
     
     @IBAction func startButtonUp(_ sender: Any) {
         let buttonTitle = startButtonUI.currentTitle
@@ -31,42 +31,16 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
             self.start = true
             self.end = false
 //            self.locationManager.startUpdatingLocation()
+        } else {
+            self.start = false
+            self.end = true
+            
+            self.popTripView(tripCoords: self.tripCoords)
+            self.tripCoords = []
         }
         
         self.viewDidLoad()
     }
-    @IBAction func finishButtonDown(_ sender: Any) {
-        self.start = false
-        self.end = true
-        
-        //        self.popTripView(tripCoords: self.tripCoords)
-        self.tripCoords = []
-        self.viewDidLoad()
-    }
-    
-    //    @IBAction func finishButtonUp(_ sender: Any) {
-//        self.start = false
-//        self.end = true
-//
-//        self.popTripView(tripCoords: self.tripCoords)
-//        self.tripCoords = []
-//        self.viewDidLoad()
-//    }
-//
-//    @IBAction func startButtonDown(_ sender: Any) {
-//        let buttonTitle = startButtonUI.currentTitle
-//        if buttonTitle == self.startTitle {
-//            self.start = true
-//            self.end = false
-//            self.locationManager.startUpdatingLocation()
-//        }
-//
-//        if self.tripCoords.count > 0 {
-//            self.popTripView(tripCoords: self.tripCoords)
-//        }
-//
-//        self.viewDidLoad()
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,15 +53,12 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         }
         
         if self.start && !self.end {
-            startButtonUI.setTitle(self.viewMapTitle, for: UIControl.State.normal)
-            finishButtonUI.isEnabled = true
-            finishButtonUI.isHidden = false
+            startButtonUI.setTitle(self.finishTitle, for: UIControl.State.normal)
+
         }
 
         if !self.start && self.end {
             startButtonUI.setTitle(self.startTitle, for: UIControl.State.normal)
-            finishButtonUI.isEnabled = false
-            finishButtonUI.isHidden = true
         }
         
         // Ask for Authorisation from the User.
@@ -102,25 +73,14 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         }
         
         mapView.delegate = self
-        
-//        self.updateMapView()
     }
     
-//    private func popTripView() {
-//        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-//        let tripViewController = storyBoard.instantiateViewController(withIdentifier: "trip") as! TripViewController
-//        self.present(tripViewController, animated: true, completion: nil)
-//    }
-//
-//    private func popTripView(tripCoords: [CLLocationCoordinate2D]) {
-//        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-//        let tripViewController = storyBoard.instantiateViewController(withIdentifier: "trip") as! TripViewController
-//        tripViewController.tripCoords = self.tripCoords
-//        if self.end {
-//            tripViewController.ended = true
-//        }
-//        self.present(tripViewController, animated: true, completion: nil)
-//    }
+    private func popTripView(tripCoords: [CLLocationCoordinate2D]) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let tripViewController = storyBoard.instantiateViewController(withIdentifier: "trip") as! TripViewController
+        tripViewController.tripCoords = self.tripCoords
+        self.present(tripViewController, animated: true, completion: nil)
+    }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
@@ -171,7 +131,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     }
     
     private func currentLocationMapView(coord: CLLocationCoordinate2D) {
-//        self.clearAllMapUI()
+        self.clearAllMapUI()
         
         let startAnnotation = MKPointAnnotation()
         startAnnotation.coordinate = coord

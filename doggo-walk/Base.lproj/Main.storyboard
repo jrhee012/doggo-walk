@@ -26,19 +26,11 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </mapView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATi-lV-AaW">
-                                        <rect key="frame" x="62" y="305" width="34" height="30"/>
+                                        <rect key="frame" x="177" y="305" width="60" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Start"/>
                                         <connections>
                                             <action selector="startButtonUp:" destination="QFH-a8-dtI" eventType="touchUpInside" id="j5B-fe-5iU"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zE3-v2-pZw">
-                                        <rect key="frame" x="305" y="305" width="41" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Finish"/>
-                                        <connections>
-                                            <action selector="finishButtonDown:" destination="QFH-a8-dtI" eventType="touchDown" id="VkP-qb-GiU"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -55,7 +47,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="RIs-9E-stX"/>
                     <connections>
-                        <outlet property="finishButtonUI" destination="zE3-v2-pZw" id="mUX-c4-b9c"/>
                         <outlet property="mapView" destination="tCc-TW-LMh" id="JqS-kI-zlO"/>
                         <outlet property="startButtonUI" destination="ATi-lV-AaW" id="0dk-av-yWF"/>
                     </connections>
