@@ -157,7 +157,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     private func addPolylineToMap() {
         self.clearAllOverlays()
         
-        let coordinates = self.tripCoords
-        self.createAndSetOVerlays(coordinates: coordinates)
+        self.createAndSetOVerlays(coordinates: self.tripCoords)
     }
 }
