@@ -16,6 +16,7 @@
 		AE5445E3225CE6920021B276 /* doggo_walkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5445E2225CE6920021B276 /* doggo_walkTests.swift */; };
 		AE5445EE225CE6920021B276 /* doggo_walkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5445ED225CE6920021B276 /* doggo_walkUITests.swift */; };
 		AE5445FC225D019A0021B276 /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5445FB225D019A0021B276 /* TripViewController.swift */; };
+		AE5445FE225E30BA0021B276 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5445FD225E30BA0021B276 /* ApiClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		AE5445ED225CE6920021B276 /* doggo_walkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = doggo_walkUITests.swift; sourceTree = "<group>"; };
 		AE5445EF225CE6920021B276 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE5445FB225D019A0021B276 /* TripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
+		AE5445FD225E30BA0021B276 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			children = (
 				AE5445CB225CE6900021B276 /* AppDelegate.swift */,
 				AE5445CD225CE6900021B276 /* HomeViewController.swift */,
+				AE5445FD225E30BA0021B276 /* ApiClient.swift */,
 				AE5445FB225D019A0021B276 /* TripViewController.swift */,
 				AE5445CF225CE6900021B276 /* SettingsViewController.swift */,
 				AE5445D1225CE6900021B276 /* Main.storyboard */,
@@ -271,6 +274,7 @@
 				AE5445FC225D019A0021B276 /* TripViewController.swift in Sources */,
 				AE5445CC225CE6900021B276 /* AppDelegate.swift in Sources */,
 				AE5445CE225CE6900021B276 /* HomeViewController.swift in Sources */,
+				AE5445FE225E30BA0021B276 /* ApiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
