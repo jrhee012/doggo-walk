@@ -14,8 +14,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     let locationManager = CLLocationManager()
     let userDefaults = UserDefaults.standard
     
+    // title label strings
     let startTitle = "Start"
     let finishTitle = "Finish"
+    let currentTitle = "Current"
     
     var tripCoords: [CLLocationCoordinate2D] = []
     var start = false
@@ -147,10 +149,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     private func addAnnotations() {
         self.clearAllAnnotations()
         
-        self.createAndSetAnnotation(title: "Start", coord: self.tripCoords[0])
+        self.createAndSetAnnotation(title: self.startTitle, coord: self.tripCoords[0])
         
         if self.tripCoords.count > 1 {
-            self.createAndSetAnnotation(title: "Current", coord: self.tripCoords[self.tripCoords.count - 1])
+            self.createAndSetAnnotation(title: self.currentTitle,
+                                        coord: self.tripCoords[self.tripCoords.count - 1])
         }
     }
     
