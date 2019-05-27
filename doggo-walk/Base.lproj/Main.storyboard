@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home-->
+        <!--Home View Controller-->
         <scene sceneID="kst-rx-t7n">
             <objects>
-                <viewController id="QFH-a8-dtI" userLabel="Home" customClass="HomeViewController" customModule="doggo_walk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="QFH-a8-dtI" userLabel="Home View Controller" customClass="HomeViewController" customModule="doggo_walk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FUC-oC-GpM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -59,7 +59,7 @@
         <scene sceneID="Xoo-Ec-Dm5">
             <objects>
                 <navigationController id="PEF-LK-s62" userLabel="Home Navigation" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="0go-Ip-6ei"/>
+                    <tabBarItem key="tabBarItem" title="Home" id="0go-Ip-6ei"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="T2U-Au-eQC">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -81,7 +81,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="YSp-rg-Vgw">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="424"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R6d-GM-yIy">
@@ -107,44 +107,40 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w6O-8O-kPG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749" y="-1009"/>
+            <point key="canvasLocation" x="747.82608695652175" y="-1009.1517857142857"/>
         </scene>
-        <!--Settings-->
-        <scene sceneID="wg7-f3-ORb">
+        <!--Settings Navigation-->
+        <scene sceneID="VLK-VD-Qke">
             <objects>
-                <viewController id="8rJ-Kc-sve" userLabel="Settings" customClass="SettingsViewController" customModule="doggo_walk" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
+                <navigationController id="drs-Ui-ey7" userLabel="Settings Navigation" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" id="xhV-PE-MPB" userLabel="Settings"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hF7-a8-iLw">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="7tR-S0-krI" kind="relationship" relationship="rootViewController" id="JJK-t1-6Xr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fzb-7S-WYR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="748" y="378"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="Oih-35-Pqf">
+            <objects>
+                <viewController id="7tR-S0-krI" customClass="SettingsViewController" customModule="doggo_walk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Eve-UL-pSK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="106.33333333333333" y="426.66666666666669" width="201.33333333333337" height="43"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="99.666666666666686" y="477.66666666666669" width="215" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" symbolic="YES" id="Day-4N-Vmt"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="JgO-Fn-dHn"/>
-                            <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
-                            <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="BFO-ua-2or"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <navigationItem key="navigationItem" id="bjR-iI-0sb"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jd4-w2-cTI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="360"/>
+            <point key="canvasLocation" x="1587" y="378"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -157,7 +153,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="PEF-LK-s62" kind="relationship" relationship="viewControllers" id="6ey-LB-CzP"/>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="Vmu-ns-zTM"/>
+                        <segue destination="drs-Ui-ey7" kind="relationship" relationship="viewControllers" id="TgW-Xl-9KG"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -165,7 +161,4 @@
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="second" width="30" height="30"/>
-    </resources>
 </document>
